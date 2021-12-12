@@ -31,8 +31,6 @@ switch ($operation) {
     case '/':
         if ($x2 = 0) {
             return 'На ноль делить нельзя';
-        } elseif (is_float($x2)) {
-            return 'делить нельзя';
         } else {
         $result = $x1 / $x2;
         break;
