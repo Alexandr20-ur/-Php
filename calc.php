@@ -29,10 +29,10 @@ switch ($operation) {
         $result = $x1 - $x2;
         break;
     case '/':
-        if ($x2 < 1 || $x2 <= 0) {
+        if ($x2 = 0) {
             return 'На ноль делить нельзя';
         } elseif (is_float($x2)) {
-            return 'На ноль делить нельзя';
+            return 'делить нельзя';
         } else {
         $result = $x1 / $x2;
         break;
