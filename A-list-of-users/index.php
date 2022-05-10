@@ -22,24 +22,25 @@ include 'Database/DB.php';
         <th>Email</th>
     </tr>
     <?php
+        $users = new Database();
+        $users->display();
 
-        $users = mysqli_query($db, "SELECT * FROM `users` ORDER BY `surname` ASC, `name` ASC, `patronymic` ASC");
-        $users = mysqli_fetch_all($users);
-
-        foreach ($users as $user) {
+        foreach ($users->display() as $user) {
             ?>
     <tr>
-        <td><?= $user[0]; ?></td>
-        <td><?= $user[2]; ?></td>
-        <td><?= $user[1]; ?></td>
-        <td><?= $user[3]; ?></td>
-        <td><?= $user[4]; ?></td>
-        <td><?= $user[5]; ?></td>
-        <td><?= $user[6]; ?></td>
-        <td><a href="vendor/User_delete.php?id=<?= $user[0];?>">Удалить пост</a></td>
+        <td><?= $user['id']; ?></td>
+        <td><?= $user['surname']; ?></td>
+        <td><?= $user['name']; ?></td>
+        <td><?= $user['patronymic']; ?></td>
+        <td><?= $user['city']; ?></td>
+        <td><?= $user['Email']; ?></td>
+        <td><?= $user['login']; ?></td>
+        <td><a href="vendor/User_update.php?id=<?= $user['id'];?>">Изменить пост</a></td>
+        <td><a href="vendor/User_delete.php?id=<?= $user['id'];?>">Удалить пост</a></td>
 
     </tr>
     <?php
+
         }
     ?>
 

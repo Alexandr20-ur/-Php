@@ -1,10 +1,13 @@
 <?php
 require '../Database/DB.php';
 $id = $_GET['id'];
-
-$delete = mysqli_query($db, "DELETE FROM `users` WHERE `users`.`id` = '$id'");
-
-header("Location: ../index.php");
+$user = new Database();
+$user->delete($id);
+//$query = "DELETE FROM `users` WHERE `users`.`id` = '$id'";
+//$delete = $mysqli->query($query) or die(mysqli_errno($delete));
+//
+//
+//header("Location: ../index.php");
 ?>
 
 
