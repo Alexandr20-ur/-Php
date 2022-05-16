@@ -23,9 +23,9 @@ include 'Database/DB.php';
     </tr>
     <?php
         $users = new Database();
-        $users->display();
+        $users->displayRecordById($_GET['id']);
 
-        foreach ($users->display() as $user) {
+        foreach ($users->displayRecordById($_GET['id']) as $user) {
             ?>
     <tr>
         <td><?= $user['id']; ?></td>
@@ -35,8 +35,8 @@ include 'Database/DB.php';
         <td><?= $user['city']; ?></td>
         <td><?= $user['Email']; ?></td>
         <td><?= $user['login']; ?></td>
-        <td><a href="vendor/User_update.php?id=<?= $user['id'];?>">Изменить пост</a></td>
-        <td><a href="delete.php?id=<?= $user['id'];?>">Удалить пост</a></td>
+        <td><a href="vendor/User_delete.php?id=<?= $user['id'];?>">Да</a></td>
+        <td><a href="index.php">Нет</a></td>
 
     </tr>
     <?php
